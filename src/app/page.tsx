@@ -14,25 +14,39 @@ import LightRays from "@/components/LightRays";
 
 export default function Home() {
 const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const TENETS = [
+        {
+            icon: '🧠',
+            title: 'Reason over Emotion',
+            desc: 'Logic and rationality are valued more than feelings in literary expression. Reason was the ultimate guide to truth and beauty for Neo-Classical writers.'
+        },
+        {
+            icon: '⚖️',
+            title: 'Order & Harmony',
+            desc: 'Literature must follow structure, balance, and clarity in its composition'
+        },
+        {
+            icon: '📖',
+            title: 'Moral Purpose',
+            desc: 'Texts are meant to teach lessons and promote virtue in society'
+        },
+        {
+            icon: '🏛️',
+            title: 'Classical Imitation',
+            desc: 'Inspired by and modeled after Ancient Greek and Roman literature'
+        },
+        {
+            icon: '🌍',
+            title: 'Universality',
+            desc: 'Focuses on human nature as a whole, not just individual experiences'
+        }
+    ];
 
 return (
 <div className="min-h-screen bg-background">
 
     {/* Hero Section with Gradient */}
     <section className="relative overflow-hidden" style={{ minHeight: '600px' }}>
-        <div className="absolute inset-0">
-            <LightRays
-                raysOrigin="top-center"
-                raysColor="#10b981"
-                raysSpeed={1.5}
-                lightSpread={0.8}
-                rayLength={1.2}
-                followMouse={true}
-                mouseInfluence={0.15}
-                noiseAmount={0.1}
-                distortion={0.05}
-            />
-        </div>
         <div className="container relative mx-auto px-4 py-24 md:py-32 mb-10">
             <div className="mx-auto max-w-5xl text-center">
                 <Badge variant="secondary"
@@ -58,13 +72,15 @@ return (
                 </p>
 
                 <div className="flex flex-wrap items-center justify-center gap-4">
-                    <Button size="lg" className="h-12 px-8 text-base shadow-lg shadow-primary/25">
-                        Start Exploring
-                        <svg className="ml-2 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-                                d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                        </svg>
-                    </Button>
+                    <Link href="/#cta">
+                        <Button size="lg" className="h-12 px-8 text-base shadow-lg shadow-primary/25">
+                            Start Exploring
+                            <svg className="ml-2 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                                    d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                            </svg>
+                        </Button>
+                    </Link>
                     <Button size="lg" variant="outline" className="h-12 px-8 text-base">
                         View Collection
                     </Button>
@@ -74,10 +90,126 @@ return (
     </section>
 
     <main className="container mx-auto px-4 py-16 md:py-24">
+
+              {/* CTA Section */}
+        <section id="cta" className="relative overflow-hidden">
+            <div className="relative p-8 md:p-12">
+                <div className="mx-auto max-w-5xl">
+                    <div className="text-center mb-12">
+                        <Badge variant="secondary"
+                            className="mb-4 bg-primary/10 text-primary hover:bg-primary/20 border border-primary/20">
+                            Explore Neo-Classical Masterpieces
+                        </Badge>
+                        <h2 className="mb-4 text-3xl font-bold tracking-tight md:text-4xl lg:text-5xl">
+                            Ready to Explore the Great Books?
+                        </h2>
+                        <p className="text-lg text-muted-foreground md:text-xl max-w-3xl mx-auto">
+                            Dive into three masterpieces that defined the Neo-Classical Age. Each work offers unique
+                            insights into reason, morality, and human nature.
+                        </p>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                        {/* An Essay on Criticism */}
+                        <div
+                            className="group relative aspect-[3/4] overflow-hidden rounded-lg border border-border/50  hover:shadow-lg">
+                            <img src="/An Essay on Criticism.png" alt="An Essay on Criticism"
+                                className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                            <ProgressiveBlur className='pointer-events-none absolute bottom-0 left-0 h-[60%] w-full'
+                                blurIntensity={8} />
+                            <div className='absolute bottom-0 left-0 w-full'>
+                                <div className='flex flex-col items-start gap-2 px-6 py-5'>
+                                    <p className='text-xl font-bold text-white dark:text-foreground'>An Essay on Criticism</p>
+                                    <span className='text-sm text-white/90 dark:text-muted-foreground mb-3'>by Alexander Pope</span>
+                                    <p className='text-sm text-white/90 dark:text-foreground/90 mb-4'>
+                                        A masterful poetic treatise on literary criticism and the principles of good
+                                        writing.
+                                    </p>
+                                    <Link href="/criticism" className="w-full">
+                                    <Button className="w-full shadow-md " variant="outline">
+                                        Explore Essay
+                                        <svg className="ml-2 h-4 w-4" fill="none" stroke="currentColor"
+                                            viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                                                d="M9 5l7 7-7 7" />
+                                        </svg>
+                                    </Button>
+                                    </Link>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Phaedra */}
+                        <div
+                            className="group relative aspect-[3/4] overflow-hidden rounded-lg  hover:shadow-xl shadow-primary/10">
+                            <img src="/Phaedra.png" alt="Phaedra"
+                                className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                            <ProgressiveBlur className='pointer-events-none absolute bottom-0 left-0 h-[60%] w-full'
+                                blurIntensity={8} />
+                            <div className='absolute bottom-0 left-0 w-full'>
+                                <div className='flex flex-col items-start gap-2 px-6 py-5'>
+                                    <p className='text-xl font-bold text-white dark:text-foreground'>Phaedra</p>
+                                    <span className='text-sm text-white/90 dark:text-muted-foreground mb-3'>by Jean Racine</span>
+                                    <p className='text-sm text-white/90 dark:text-foreground/90 mb-4'>
+                                        A tragic masterpiece exploring forbidden passion and moral conflict in classical
+                                        form.
+                                    </p>
+                                    <Link href="/phaedra" className="w-full">
+                                    <Button className="w-full shadow-md" variant="outline">
+                                        Read Drama
+                                        <svg className="ml-2 h-4 w-4" fill="none" stroke="currentColor"
+                                            viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                                                d="M9 5l7 7-7 7" />
+                                        </svg>
+                                    </Button>
+                                    </Link>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Gulliver's Travels */}
+                        <div
+                            className="group relative aspect-[3/4] overflow-hidden rounded-lg border border-border/50 hover:border-primary/50 transition-all hover:shadow-lg">
+                            <img src="/Gulliver's Travels.png" alt="Gulliver's Travels"
+                                className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                            <ProgressiveBlur className='pointer-events-none absolute bottom-0 left-0 h-[60%] w-full'
+                                blurIntensity={8} />
+                            <div className='absolute bottom-0 left-0 w-full'>
+                                <div className='flex flex-col items-start gap-2 px-6 py-5'>
+                                    <p className='text-xl font-bold text-white dark:text-foreground'>Gulliver's Travels</p>
+                                    <span className='text-sm text-white/90 dark:text-muted-foreground mb-3'>by Jonathan Swift</span>
+                                    <p className='text-sm text-white/90 dark:text-foreground/90 mb-4'>
+                                        A brilliant satirical adventure critiquing society, politics, and human nature.
+                                    </p>
+                                    <Link href="/gullivers-travels" className="w-full">
+                                    <Button className="w-full shadow-md" variant="outline">
+                                        Begin Adventure
+                                        <svg className="ml-2 h-4 w-4" fill="none" stroke="currentColor"
+                                            viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                                                d="M9 5l7 7-7 7" />
+                                        </svg>
+                                    </Button>
+                                    </Link>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="text-center">
+                        <p className="text-sm text-muted-foreground">
+                            Each masterpiece represents a cornerstone of Neo-Classical literature
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
         {/* About Section - Modern UI */}
-        <section id="about" className="mb-55 flex justify-center ">
+        <section id="about" className="mb-12 flex justify-center scroll-mt-16 py-12 md:py-16">
             <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center mx-auto w-full justify-center">
-                <div className="space-y-6 text-center w-full flex flex-col items-center px-30">
+                <div className="space-y-6 text-center w-full flex flex-col items-center px-6 sm:px-8 md:px-12 lg:px-30">
                     <div className="flex items-center gap-3 justify-center w-full">
                         <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-foreground">
                             About the Neo-Classical Age
@@ -94,7 +226,7 @@ return (
                             those of ancient Greece and Rome.
                         </p>
 
-                        <div className="flex flex-wrap gap-3 pb-15 justify-center w-full">
+                        <div className="flex flex-wrap gap-3 pb-6 justify-center w-full">
                             <Badge variant="secondary">
                                 Classical Literature
                             </Badge>
@@ -143,7 +275,7 @@ return (
         </section>
 
         {/* Tenets Bento Grid */}
-        <section className="mb-50">
+        <section id="tenets" className="mb-12 scroll-mt-16 py-12 md:py-16">
             <div className="mb-12 text-center">
                 <h2 className="mb-4 text-3xl font-bold tracking-tight md:text-4xl lg:text-5xl">
                     Tenets of Neo-Classicism
@@ -153,94 +285,45 @@ return (
                 </p>
             </div>
 
-            <InfiniteSlider gap={24} reverse>
-                {/* Medium Card - Reason */}
-                <Card
-                    className="group relative overflow-hidden border-border/50 transition-all hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5 w-[350px]">
-                    <CardHeader>
-                        <div
-                            className="mb-3 flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br from-primary/20 to-primary/5 transition-transform group-hover:scale-110">
-                            <span className="text-3xl">🧠</span>
-                        </div>
-                        <CardTitle className="text-xl">Reason over Emotion</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                        <CardDescription>
-                            Logic and rationality are valued more than feelings in literary expression. Reason was the
-                            ultimate guide to truth and beauty for Neo-Classical writers.
-                        </CardDescription>
-                    </CardContent>
-                </Card>
+            {/* Mobile: stacked single-column list */}
+            <div className="grid grid-cols-1 gap-4 md:hidden">
+                {TENETS.map((t) => (
+                    <Card key={t.title} className="w-full group relative overflow-hidden border-border/50 transition-all hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5">
+                        <CardHeader>
+                            <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-primary/20 to-primary/5">
+                                <span className="text-2xl">{t.icon}</span>
+                            </div>
+                            <CardTitle className="text-lg">{t.title}</CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                            <CardDescription>{t.desc}</CardDescription>
+                        </CardContent>
+                    </Card>
+                ))}
+            </div>
 
-                {/* Medium Cards */}
-                <Card
-                    className="group relative overflow-hidden border-border/50 transition-all hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5 w-[350px]">
-                    <CardHeader>
-                        <div
-                            className="mb-3 flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br from-primary/20 to-primary/5 transition-transform group-hover:scale-110">
-                            <span className="text-3xl">⚖️</span>
-                        </div>
-                        <CardTitle className="text-xl">Order & Harmony</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                        <CardDescription>
-                            Literature must follow structure, balance, and clarity in its composition
-                        </CardDescription>
-                    </CardContent>
-                </Card>
-
-                <Card
-                    className="group relative overflow-hidden border-border/50 transition-all hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5 w-[350px]">
-                    <CardHeader>
-                        <div
-                            className="mb-3 flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br from-primary/20 to-primary/5 transition-transform group-hover:scale-110">
-                            <span className="text-3xl">📖</span>
-                        </div>
-                        <CardTitle className="text-xl">Moral Purpose</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                        <CardDescription>
-                            Texts are meant to teach lessons and promote virtue in society
-                        </CardDescription>
-                    </CardContent>
-                </Card>
-
-                <Card
-                    className="group relative overflow-hidden border-border/50 transition-all hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5 w-[350px]">
-                    <CardHeader>
-                        <div
-                            className="mb-3 flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br from-primary/20 to-primary/5 transition-transform group-hover:scale-110">
-                            <span className="text-3xl">🏛️</span>
-                        </div>
-                        <CardTitle className="text-xl">Classical Imitation</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                        <CardDescription>
-                            Inspired by and modeled after Ancient Greek and Roman literature
-                        </CardDescription>
-                    </CardContent>
-                </Card>
-
-                <Card
-                    className="group relative overflow-hidden border-border/50 transition-all hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5 w-[350px]">
-                    <CardHeader>
-                        <div
-                            className="mb-3 flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br from-primary/20 to-primary/5 transition-transform group-hover:scale-110">
-                            <span className="text-3xl">🌍</span>
-                        </div>
-                        <CardTitle className="text-xl">Universality</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                        <CardDescription>
-                            Focuses on human nature as a whole, not just individual experiences
-                        </CardDescription>
-                    </CardContent>
-                </Card>
-            </InfiniteSlider>
+            {/* Desktop / Tablet: existing horizontal slider */}
+            <div className="hidden md:block">
+                <InfiniteSlider gap={24} reverse>
+                    {TENETS.map((t) => (
+                        <Card key={t.title} className="group relative overflow-hidden border-border/50 transition-all hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5 min-w-[240px] sm:w-[300px] md:w-[350px]">
+                            <CardHeader>
+                                <div className="mb-3 flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br from-primary/20 to-primary/5 transition-transform group-hover:scale-110">
+                                    <span className="text-3xl">{t.icon}</span>
+                                </div>
+                                <CardTitle className="text-xl">{t.title}</CardTitle>
+                            </CardHeader>
+                            <CardContent>
+                                <CardDescription>{t.desc}</CardDescription>
+                            </CardContent>
+                        </Card>
+                    ))}
+                </InfiniteSlider>
+            </div>
         </section>
 
         {/* Literary Ages Comparison - Horizontal Scroll */}
-        <section className="mb-24">
+        <section id="comparison" className="mb-12 scroll-mt-16 py-12 md:py-16">
             <div className="mb-12 text-center">
                 <h2 className="mb-4 text-3xl font-bold tracking-tight md:text-4xl lg:text-5xl">
                     Literature Across the Ages
@@ -250,7 +333,7 @@ return (
                 </p>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {/* Classical Age */}
                 <Card className="group relative overflow-hidden border-border/50 transition-all hover:shadow-xl">
                     <div
@@ -485,124 +568,6 @@ return (
                 </Card>
             </div>
         </section>
-
-
-
-        {/* CTA Section */}
-        <section className="relative overflow-hidden  ">
-            <div className="relative p-12 md:p-16">
-                <div className="mx-auto max-w-5xl">
-                    <div className="text-center mb-12">
-                        <Badge variant="secondary"
-                            className="mb-4 bg-primary/10 text-primary hover:bg-primary/20 border border-primary/20">
-                            Explore Neo-Classical Masterpieces
-                        </Badge>
-                        <h2 className="mb-4 text-3xl font-bold tracking-tight md:text-4xl lg:text-5xl">
-                            Ready to Explore the Great Books?
-                        </h2>
-                        <p className="text-lg text-muted-foreground md:text-xl max-w-3xl mx-auto">
-                            Dive into three masterpieces that defined the Neo-Classical Age. Each work offers unique
-                            insights into reason, morality, and human nature.
-                        </p>
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-                        {/* An Essay on Criticism */}
-                        <div
-                            className="group relative aspect-[3/4] overflow-hidden rounded-lg border border-border/50  hover:shadow-lg">
-                            <img src="/An Essay on Criticism.png" alt="An Essay on Criticism"
-                                className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                            <ProgressiveBlur className='pointer-events-none absolute bottom-0 left-0 h-[60%] w-full'
-                                blurIntensity={8} />
-                            <div className='absolute bottom-0 left-0 w-full'>
-                                <div className='flex flex-col items-start gap-2 px-6 py-5'>
-                                    <p className='text-xl font-bold text-foreground'>An Essay on Criticism</p>
-                                    <span className='text-sm text-muted-foreground mb-3'>by Alexander Pope</span>
-                                    <p className='text-sm text-foreground/90 mb-4'>
-                                        A masterful poetic treatise on literary criticism and the principles of good
-                                        writing.
-                                    </p>
-                                    <Link href="/criticism" className="w-full">
-                                    <Button className="w-full shadow-md " variant="outline">
-                                        Explore Essay
-                                        <svg className="ml-2 h-4 w-4" fill="none" stroke="currentColor"
-                                            viewBox="0 0 24 24">
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-                                                d="M9 5l7 7-7 7" />
-                                        </svg>
-                                    </Button>
-                                    </Link>
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* Phaedra */}
-                        <div
-                            className="group relative aspect-[3/4] overflow-hidden rounded-lg  hover:shadow-xl shadow-primary/10">
-                            <img src="/Phaedra.png" alt="Phaedra"
-                                className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                            <ProgressiveBlur className='pointer-events-none absolute bottom-0 left-0 h-[60%] w-full'
-                                blurIntensity={8} />
-                            <div className='absolute bottom-0 left-0 w-full'>
-                                <div className='flex flex-col items-start gap-2 px-6 py-5'>
-                                    <p className='text-xl font-bold text-foreground'>Phaedra</p>
-                                    <span className='text-sm text-muted-foreground mb-3'>by Jean Racine</span>
-                                    <p className='text-sm text-foreground/90 mb-4'>
-                                        A tragic masterpiece exploring forbidden passion and moral conflict in classical
-                                        form.
-                                    </p>
-                                    <Link href="/phaedra" className="w-full">
-                                    <Button className="w-full shadow-md" variant="outline">
-                                        Read Drama
-                                        <svg className="ml-2 h-4 w-4" fill="none" stroke="currentColor"
-                                            viewBox="0 0 24 24">
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-                                                d="M9 5l7 7-7 7" />
-                                        </svg>
-                                    </Button>
-                                    </Link>
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* Gulliver's Travels */}
-                        <div
-                            className="group relative aspect-[3/4] overflow-hidden rounded-lg border border-border/50 hover:border-primary/50 transition-all hover:shadow-lg">
-                            <img src="/Gulliver's Travels.png" alt="Gulliver's Travels"
-                                className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                            <ProgressiveBlur className='pointer-events-none absolute bottom-0 left-0 h-[60%] w-full'
-                                blurIntensity={8} />
-                            <div className='absolute bottom-0 left-0 w-full'>
-                                <div className='flex flex-col items-start gap-2 px-6 py-5'>
-                                    <p className='text-xl font-bold text-foreground'>Gulliver's Travels</p>
-                                    <span className='text-sm text-muted-foreground mb-3'>by Jonathan Swift</span>
-                                    <p className='text-sm text-foreground/90 mb-4'>
-                                        A brilliant satirical adventure critiquing society, politics, and human nature.
-                                    </p>
-                                    <Link href="/gullivers-travels" className="w-full">
-                                    <Button className="w-full shadow-md" variant="outline">
-                                        Begin Adventure
-                                        <svg className="ml-2 h-4 w-4" fill="none" stroke="currentColor"
-                                            viewBox="0 0 24 24">
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-                                                d="M9 5l7 7-7 7" />
-                                        </svg>
-                                    </Button>
-                                    </Link>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="text-center">
-                        <p className="text-sm text-muted-foreground">
-                            Each masterpiece represents a cornerstone of Neo-Classical literature
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
 
         <footer className="mt-24 border-t border-border pt-12 text-center">
             <p className="text-sm text-muted-foreground">
