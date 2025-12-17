@@ -6,21 +6,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import Link from "next/link";
 import React from "react";
-import {
-    BookOpen,
-    PenTool,
-    Search,
-    Layers,
-    CheckSquare,
-    FileText,
-    MessageCircle,
-    Music,
-    Image,
-    Repeat,
-    Clock,
-    Lightbulb,
-    Landmark,
-} from "lucide-react";
+import { ClipboardList, BookOpen } from 'lucide-react';
+
 
 // --- Data for the page ---
 const overviewPoints = [
@@ -67,9 +54,9 @@ const analysisParagraphs = [
 ];
 
 const literaryElements = [
-    { icon: <BookOpen className="text-3xl" />, title: "Form", content: "Heroic couplets (two rhyming lines in iambic pentameter)" },
+    { icon: null, title: "Form", content: "Heroic couplets (two rhyming lines in iambic pentameter)" },
     {
-        icon: <MessageCircle className="text-3xl" />,
+        icon: null,
         title: "Diction",
         content: (
             <>
@@ -78,25 +65,25 @@ const literaryElements = [
             </>
         ),
     },
-    { icon: <Music className="text-3xl" />, title: "Tone", content: "Didactic (teaching), critical but balanced, sometimes satirical." },
+    { icon: null, title: "Tone", content: "Didactic (teaching), critical but balanced, sometimes satirical." },
     {
-        icon: <Image className="text-3xl" />,
+        icon: null,
         title: "Imagery",
         content: "Uses nature imagery (spring, water, growth) and balance (hills, valleys) to explain knowledge and criticism.",
     },
     {
-        icon: <Repeat className="text-3xl" />,
+        icon: null,
         title: "Rhythm",
         content: "Smooth and regular, guided by iambic pentameter, creating a steady and formal flow.",
     },
-    { icon: <Music className="text-3xl" />, title: "Rhyme", content: "Couplets rhyme in an AA, BB, CC pattern, making lines memorable." },
+    { icon: null, title: "Rhyme", content: "Couplets rhyme in an AA, BB, CC pattern, making lines memorable." },
     {
-        icon: <Clock className="text-3xl" />,
+        icon: null,
         title: "Meter",
         content: "Iambic pentameter (10 syllables per line, alternating unstressed and stressed: da-DUM da-DUM da-DUM da-DUM da-DUM).",
     },
     {
-        icon: <Lightbulb className="text-3xl" />,
+        icon: null,
         title: "Theme / Main Idea",
         content: (
             <>
@@ -163,54 +150,36 @@ export default function CriticismPage() {
 
             <div className="mx-auto max-w-6xl">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-                    {/* Left column: CTAs (redesigned) */}
+                    {/* Left column: CTAs */}
                     <aside className="md:col-span-1">
                         <div className="sticky top-24 space-y-6">
-                            <Card className="overflow-hidden border-2 border-primary/10 shadow-sm hover:border-primary/20 transition-colors">
-                                <div className="p-6">
-                                    <div className="flex items-center gap-4 mb-4">
-                                        <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary text-xl">
-                                            📝
-                                        </div>
-                                        <div>
-                                            <h3 className="font-bold text-lg">Take the Quiz</h3>
-                                            <p className="text-sm text-muted-foreground">Test your knowledge</p>
-                                        </div>
-                                    </div>
-                                    
-                                    <div className="space-y-2 mb-6">
-                                        <div className="flex items-center text-sm text-muted-foreground">
-                                            <span className="mr-2 h-1.5 w-1.5 rounded-full bg-primary"></span>
-                                            5 questions · ~3 minutes
-                                        </div>
-                                        <div className="flex items-center text-sm text-muted-foreground">
-                                            <span className="mr-2 h-1.5 w-1.5 rounded-full bg-primary"></span>
-                                            Immediate feedback
-                                        </div>
-                                    </div>
-
+                            <Card className="border border-border shadow-sm transition-colors px-6">
+                                <div className="py-6">
+                                    <h3 className="font-bold text-lg mb-1 flex items-center gap-3">
+                                        <span
+                                            className="inline-flex items-center justify-center h-12 w-12 rounded-full bg-primary/10 text-primary">
+                                            <ClipboardList className="w-5 h-5" />
+                                        </span>
+                                        Take the Quiz
+                                    </h3>
+                                    <p className="text-sm text-muted-foreground mb-4">A short quiz to check your
+                                        understanding of the poem's themes.</p>
                                     <Link href="/criticism/quiz">
                                         <Button className="w-full font-semibold" size="lg">Start Quiz</Button>
                                     </Link>
                                 </div>
                             </Card>
 
-                            <Card className="overflow-hidden border-2 border-primary/10 shadow-sm hover:border-primary/20 transition-colors">
-                                <div className="p-6">
-                                    <div className="flex items-center gap-4 mb-4">
-                                        <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary text-xl">
-                                            📜
-                                        </div>
-                                        <div>
-                                            <h3 className="font-bold text-lg">View Full Poem</h3>
-                                            <p className="text-sm text-muted-foreground">Read the masterpiece</p>
-                                        </div>
-                                    </div>
-                                    
-                                    <p className="text-sm text-muted-foreground mb-6 leading-relaxed">
-                                        Open the poem reader with navigation, adjustable font size, and focused reading mode.
-                                    </p>
-
+                            <Card className="border border-border shadow-sm transition-colors px-6">
+                                <div className="py-6">
+                                    <h3 className="font-bold text-lg mb-1 flex items-center gap-3">
+                                        <span
+                                            className="inline-flex items-center justify-center h-12 w-12 rounded-full bg-primary/10 text-primary">
+                                            <BookOpen className="w-5 h-5" />
+                                        </span>
+                                        View Full Poem
+                                    </h3>
+                                    <p className="text-sm text-muted-foreground mb-6 leading-relaxed">Open the poem reader with navigation and controls. Adjust typography, and focus on close reading.</p>
                                     <Link href="/criticism/view-essay">
                                         <Button variant="outline" className="w-full font-semibold" size="lg">Open Poem</Button>
                                     </Link>
@@ -219,13 +188,12 @@ export default function CriticismPage() {
                         </div>
                     </aside>
 
-                    {/* Right column: main content */}
-                    <article className="md:col-span-2">
+                    {/* Right column: main content (document-style layout; original content preserved) */}
+                    <section className="md:col-span-2 space-y-12">
                         <div className="space-y-12">
                             {/* Overview */}
                             <section>
                                 <div className="flex items-center gap-4 mb-4">
-                                    <BookOpen className="h-8 w-8 text-primary" />
                                     <h2 className="text-3xl font-bold tracking-tight">Overview</h2>
                                 </div>
                                 <ul className="space-y-2 text-muted-foreground">
@@ -240,7 +208,6 @@ export default function CriticismPage() {
                             {/* Background of the Author */}
                             <section>
                                 <div className="flex items-center gap-4 mb-4">
-                                    <PenTool className="h-8 w-8 text-primary" />
                                     <h2 className="text-3xl font-bold tracking-tight">Background of the Author</h2>
                                 </div>
                                 <div className="space-y-4 text-muted-foreground leading-relaxed">
@@ -252,32 +219,39 @@ export default function CriticismPage() {
 
                             <Separator />
 
-                            {/* Main Points - Three Parts */}
+                            {/* Main Points - Three Parts (styled as a document card) */}
                             <section>
                                 <div className="flex items-start gap-4 mb-8">
-                                    <Layers className="h-8 w-8 flex-shrink-0 text-primary mt-1" />
-                                    <div>
+                                    <div className="flex-1">
                                         <h2 className="text-3xl font-bold tracking-tight">Main Points of the Poem</h2>
                                         <p className="text-lg text-muted-foreground mt-1">The essay is divided into three distinct parts.</p>
                                     </div>
                                 </div>
-                                <div className="space-y-8">
-                                    {mainPoints.map((item) => (
-                                        <div key={item.part}>
-                                            <h3 className="text-xl font-semibold mb-2">{item.part}</h3>
-                                            <blockquote className="border-l-4 pl-4 italic text-muted-foreground mb-4">
-                                                &ldquo;{item.quote}&rdquo;
-                                            </blockquote>
-                                            <ul className="space-y-2 text-sm text-muted-foreground">
-                                                {item.points.map((point, index) => (
-                                                    <BulletListItem key={index} size="sm">
-                                                        {point}
-                                                    </BulletListItem>
-                                                ))}
-                                            </ul>
+
+                                <Card className="overflow-hidden bg-card/50">
+                                    <div className="border-b bg-muted/40 p-6 text-center md:p-8">
+                                        <p className="text-sm text-muted-foreground italic">A compact overview of each part</p>
+                                    </div>
+                                    <CardContent className="p-6 md:p-8">
+                                        <div className="space-y-8">
+                                            {mainPoints.map((item) => (
+                                                <div key={item.part}>
+                                                    <h3 className="text-xl font-semibold mb-2">{item.part}</h3>
+                                                    <blockquote className="border-l-4 pl-4 italic text-muted-foreground mb-4">
+                                                        &ldquo;{item.quote}&rdquo;
+                                                    </blockquote>
+                                                    <ul className="space-y-2 text-sm text-muted-foreground">
+                                                        {item.points.map((point, index) => (
+                                                            <BulletListItem key={index} size="sm">
+                                                                {point}
+                                                            </BulletListItem>
+                                                        ))}
+                                                    </ul>
+                                                </div>
+                                            ))}
                                         </div>
-                                    ))}
-                                </div>
+                                    </CardContent>
+                                </Card>
                             </section>
 
                             <Separator />
@@ -285,7 +259,6 @@ export default function CriticismPage() {
                             {/* Analysis */}
                             <section>
                                 <div className="flex items-center gap-4 mb-4">
-                                    <Search className="h-8 w-8 text-primary" />
                                     <h2 className="text-3xl font-bold tracking-tight">Analysis</h2>
                                 </div>
                                 <div className="space-y-4 text-muted-foreground leading-relaxed">
@@ -300,7 +273,6 @@ export default function CriticismPage() {
                             {/* Literary Elements */}
                             <section>
                                 <div className="flex items-start gap-4 mb-8">
-                                    <FileText className="h-8 w-8 flex-shrink-0 text-primary mt-1" />
                                     <div>
                                         <h2 className="text-3xl font-bold tracking-tight">Literary Elements</h2>
                                         <p className="text-lg text-muted-foreground mt-1">The building blocks of Pope's poetic argument.</p>
@@ -310,7 +282,7 @@ export default function CriticismPage() {
                                     {literaryElements.map((el) => (
                                         <div key={el.title}>
                                             <div className="flex items-center gap-3 mb-2">
-                                                {React.cloneElement(el.icon, { className: "h-6 w-6 text-muted-foreground" })}
+                                                {el.icon ? React.cloneElement(el.icon, { className: "h-6 w-6 text-muted-foreground" }) : null}
                                                 <h3 className="text-xl font-semibold">{el.title}</h3>
                                             </div>
                                             <div className="pl-9 text-muted-foreground">
@@ -326,7 +298,6 @@ export default function CriticismPage() {
                             {/* Neo-Classical Classification */}
                             <section>
                                 <div className="flex items-start gap-4 mb-4">
-                                    <Landmark className="h-8 w-8 flex-shrink-0 text-primary mt-1" />
                                     <h2 className="text-3xl font-bold tracking-tight">Why An Essay on Criticism is Classified as Neo-Classical</h2>
                                 </div>
                                 <ul className="space-y-3 text-muted-foreground">
@@ -336,7 +307,7 @@ export default function CriticismPage() {
                                 </ul>
                             </section>
                         </div>
-                    </article>
+                    </section>
                 </div>
             </div>
         </main>
