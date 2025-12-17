@@ -88,7 +88,7 @@ return (
                     Discover timeless works emphasizing order, logic, and moral instruction.
                 </p>
 
-                <div className="flex flex-wrap items-center justify-center gap-4">
+                    <div className="flex flex-wrap items-center justify-center gap-4">
                     <Link href="/#cta">
                         <Button size="lg" className="h-12 px-8 text-base shadow-lg shadow-primary/25">
                             Start Exploring
@@ -98,9 +98,11 @@ return (
                             </svg>
                         </Button>
                     </Link>
-                    <Button size="lg" variant="outline" className="h-12 px-8 text-base">
-                        View Collection
-                    </Button>
+                    <Link href="/#comparison">
+                        <Button size="lg" variant="outline" className="h-12 px-8 text-base">
+                            View Collection
+                        </Button>
+                    </Link>
                 </div>
             </div>
         </div>
@@ -604,7 +606,7 @@ return (
             <p className="text-sm text-muted-foreground">
                 Prepared by{" "}
                 <span className="font-medium text-foreground">Manuel Andrei L. Lleva</span>,{" "}
-                <span className="font-medium text-foreground">Meshe Mae N. Barquilla</span>, and{" "}
+                <span className="font-medium text-foreground">Meshe Mae N. Barquilla</span>, {" "}
                 <span className="font-medium text-foreground">Kim Antonette B. Bron</span>
             </p>
         </footer>
