@@ -166,45 +166,55 @@ export default function CriticismPage() {
                     {/* Left column: CTAs (redesigned) */}
                     <aside className="md:col-span-1">
                         <div className="sticky top-24 space-y-6">
-                            <Card className="p-0 overflow-hidden shadow-lg">
-                                <div className="flex items-center gap-4 p-4 bg-gradient-to-r from-primary/10 to-card/30">
-                                    <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/20 text-primary text-xl">📝</div>
-                                    <div>
-                                        <CardTitle className="text-lg mb-0">Take the Quiz</CardTitle>
-                                        <p className="text-sm text-muted-foreground">A short 5-question quiz to test your understanding.</p>
+                            <Card className="overflow-hidden border-2 border-primary/10 shadow-sm hover:border-primary/20 transition-colors">
+                                <div className="p-6">
+                                    <div className="flex items-center gap-4 mb-4">
+                                        <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary text-xl">
+                                            📝
+                                        </div>
+                                        <div>
+                                            <h3 className="font-bold text-lg">Take the Quiz</h3>
+                                            <p className="text-sm text-muted-foreground">Test your knowledge</p>
+                                        </div>
                                     </div>
-                                </div>
-                                <CardContent className="p-4 pt-3">
-                                    <ul className="mb-4 text-sm text-muted-foreground space-y-2">
-                                        <li className="flex items-center gap-2">
-                                            <span className="inline-block h-2 w-2 rounded-full bg-primary" />
+                                    
+                                    <div className="space-y-2 mb-6">
+                                        <div className="flex items-center text-sm text-muted-foreground">
+                                            <span className="mr-2 h-1.5 w-1.5 rounded-full bg-primary"></span>
                                             5 questions · ~3 minutes
-                                        </li>
-                                        <li className="flex items-center gap-2">
-                                            <span className="inline-block h-2 w-2 rounded-full bg-primary" />
+                                        </div>
+                                        <div className="flex items-center text-sm text-muted-foreground">
+                                            <span className="mr-2 h-1.5 w-1.5 rounded-full bg-primary"></span>
                                             Immediate feedback
-                                        </li>
-                                    </ul>
+                                        </div>
+                                    </div>
+
                                     <Link href="/criticism/quiz">
-                                        <Button className="w-full">Start Quiz</Button>
+                                        <Button className="w-full font-semibold" size="lg">Start Quiz</Button>
                                     </Link>
-                                </CardContent>
+                                </div>
                             </Card>
 
-                            <Card className="p-0 overflow-hidden shadow-lg">
-                                <div className="flex items-center gap-4 p-4 bg-gradient-to-r from-card/10 to-primary/5">
-                                    <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary text-xl">📜</div>
-                                    <div>
-                                        <CardTitle className="text-lg mb-0">View Full Poem</CardTitle>
-                                        <p className="text-sm text-muted-foreground">Open the poem reader with navigation and reader controls.</p>
+                            <Card className="overflow-hidden border-2 border-primary/10 shadow-sm hover:border-primary/20 transition-colors">
+                                <div className="p-6">
+                                    <div className="flex items-center gap-4 mb-4">
+                                        <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary text-xl">
+                                            📜
+                                        </div>
+                                        <div>
+                                            <h3 className="font-bold text-lg">View Full Poem</h3>
+                                            <p className="text-sm text-muted-foreground">Read the masterpiece</p>
+                                        </div>
                                     </div>
-                                </div>
-                                <CardContent className="p-4 pt-3">
-                                    <p className="mb-4 text-sm text-muted-foreground">Adjust font size, toggle width, and jump between parts for focused reading.</p>
+                                    
+                                    <p className="text-sm text-muted-foreground mb-6 leading-relaxed">
+                                        Open the poem reader with navigation, adjustable font size, and focused reading mode.
+                                    </p>
+
                                     <Link href="/criticism/view-essay">
-                                        <Button variant="outline" className="w-full">Open Poem</Button>
+                                        <Button variant="outline" className="w-full font-semibold" size="lg">Open Poem</Button>
                                     </Link>
-                                </CardContent>
+                                </div>
                             </Card>
                         </div>
                     </aside>

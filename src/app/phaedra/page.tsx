@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import Link from "next/link";
+import { ClipboardList, BookOpen } from "lucide-react";
 
 export default function PhaedraPage() {
     return (
@@ -17,238 +18,209 @@ export default function PhaedraPage() {
                         {/* Left column: CTAs */}
                         <aside className="md:col-span-1">
                             <div className="sticky top-24 space-y-6">
-                                <Card className="p-0 overflow-hidden shadow-lg">
-                                    <div className="flex items-center gap-4 p-4 bg-gradient-to-r from-primary/10 to-card/30">
-                                        <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/20 text-primary text-xl">🎭</div>
-                                        <div>
-                                            <CardTitle className="text-lg mb-0">Take the Quiz</CardTitle>
-                                            <p className="text-sm text-muted-foreground">Short quiz on the drama's plot and themes.</p>
-                                        </div>
-                                    </div>
-                                    <CardContent className="p-4 pt-3">
-                                        <ul className="mb-4 text-sm text-muted-foreground space-y-2">
-                                            <li className="flex items-center gap-2">
-                                                <span className="inline-block h-2 w-2 rounded-full bg-primary" />
-                                                6 questions · ~4 minutes
-                                            </li>
-                                            <li className="flex items-center gap-2">
-                                                <span className="inline-block h-2 w-2 rounded-full bg-primary" />
-                                                Immediate feedback
-                                            </li>
-                                        </ul>
+                                <Card className="border border-border shadow-sm transition-colors px-6">
+                                    <div className="py-6">
+                                        <h3 className="font-bold text-lg mb-1 flex items-center gap-3">
+                                            <span
+                                                className="inline-flex items-center justify-center h-12 w-12 rounded-full bg-primary/10 text-primary">
+                                                <ClipboardList className="w-5 h-5" />
+                                            </span>
+                                            Take the Quiz
+                                        </h3>
+                                        <p className="text-sm text-muted-foreground mb-4">A short quiz to check your
+                                            understanding of the drama's plot and themes.</p>
                                         <Link href="/phaedra/quiz">
-                                            <Button className="w-full">Start Quiz</Button>
+                                            <Button className="w-full font-semibold" size="lg">Start Quiz</Button>
                                         </Link>
-                                    </CardContent>
+                                    </div>
                                 </Card>
 
-                                <Card className="p-0 overflow-hidden shadow-lg">
-                                    <div className="flex items-center gap-4 p-4 bg-gradient-to-r from-card/10 to-primary/5">
-                                        <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary text-xl">📖</div>
-                                        <div>
-                                            <CardTitle className="text-lg mb-0">Read Full Text</CardTitle>
-                                            <p className="text-sm text-muted-foreground">Open the reader for the full play with navigation and controls.</p>
-                                        </div>
-                                    </div>
-                                    <CardContent className="p-4 pt-3">
-                                        <p className="mb-4 text-sm text-muted-foreground">Adjust font size, jump between acts, and focus on close reading.</p>
+                                <Card className="border border-border shadow-sm transition-colors px-6">
+                                    <div className="py-6">
+                                        <h3 className="font-bold text-lg mb-1 flex items-center gap-3">
+                                            <span
+                                                className="inline-flex items-center justify-center h-12 w-12 rounded-full bg-primary/10 text-primary">
+                                                <BookOpen className="w-5 h-5" />
+                                            </span>
+                                            Read Full Text
+                                        </h3>
+                                        <p className="text-sm text-muted-foreground mb-6 leading-relaxed">Open the reader for
+                                            the full play with navigation and controls. Adjust typography, jump between
+                                            acts, and focus on close reading.</p>
                                         <Link href="/phaedra/read">
-                                            <Button variant="outline" className="w-full">Open Reader</Button>
+                                            <Button variant="outline" className="w-full font-semibold" size="lg">Open
+                                                Reader</Button>
                                         </Link>
-                                    </CardContent>
+                                    </div>
                                 </Card>
                             </div>
                         </aside>
 
-                        {/* Right column: main content */}
+                        {/* Right column: main content (restyled to match the document-style layout) */}
                         <section className="md:col-span-2 space-y-12">
-                            {/* Overview */}
-                            <Card className="overflow-hidden border-border/50 bg-card/50 backdrop-blur">
-                                <CardHeader className="relative">
-                                    <div className="mb-3 flex items-center gap-3">
-                                        <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10">
-                                            <span className="text-xl">🎭</span>
-                                        </div>
-                                        <CardTitle className="text-2xl md:text-3xl">Overview of the Drama</CardTitle>
+                            <div className="space-y-12">
+                                {/* Overview */}
+                                <section>
+                                    <div className="flex items-center gap-4 mb-4">
+                                        <h2 className="text-3xl font-bold tracking-tight">Overview</h2>
                                     </div>
-                                </CardHeader>
-                                <CardContent className="relative space-y-4 text-muted-foreground leading-relaxed">
-                                    <div>
-                                        <p className="mb-2"><strong className="text-foreground">Title:</strong> Phèdre</p>
-                                        <p className="mb-4"><strong className="text-foreground">Author:</strong> Jean Racine</p>
+                                    <div className="text-lg text-muted-foreground leading-relaxed">
+                                        <p>
+                                            <span className="font-semibold text-foreground">Phèdre</span> by Jean Racine is a classical tragedy in five acts that centers on forbidden desire, honor, and the tragic consequences of passion. Racine adapts elements of the Hippolytus tradition to focus on Phèdre's inward torment and the social constraints that push events to catastrophe.
+                                        </p>
                                     </div>
-                                    <p>
-                                        <em>Phèdre</em>, a classical tragedy in five acts by Jean Racine, was performed and published in 1677. Racine's work is based on the play <em>Hippolytus</em> by the Greek playwright Euripides and addresses the same story, but it changes the focus from Hippolytus (Hippolyte), the stepson, to Phaedra (Phèdre), the stepmother.
-                                    </p>
-                                </CardContent>
-                            </Card>
+                                </section>
 
-                            {/* The Setting */}
-                            <Card className="border-border/50">
-                                <CardHeader>
-                                    <div className="mb-3 flex items-center gap-3">
-                                        <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10">
-                                            <span className="text-xl">🏛️</span>
+                                {/* The Drama (acts, document-style) */}
+                                <section>
+                                    <Card className="overflow-hidden bg-card/50">
+                                        <div className="border-b bg-muted/40 p-8 text-center md:p-12">
+                                            <h2 className="mb-2 text-3xl font-bold tracking-tight md:text-4xl font-serif">The Five Acts</h2>
+                                            <p className="text-lg text-muted-foreground italic">
+                                                A concise account of the play's acts and key events
+                                            </p>
                                         </div>
-                                        <CardTitle className="text-2xl md:text-3xl">The Setting</CardTitle>
-                                    </div>
-                                </CardHeader>
-                                <CardContent className="text-muted-foreground leading-relaxed">
-                                    <p>
-                                        The play unfolds in Troezen, a coastal city in the Peloponnese. King Theseus has been absent for over six months, and no one knows whether he is alive or dead. His wife Phaedra is gravely ill, wasting away from a secret torment. His son Hippolytus, born of the Amazon Antiope, is restless and uneasy.
-                                    </p>
-                                </CardContent>
-                            </Card>
 
-                            {/* Key Characters and remaining content follow unchanged... */}
-                            <Card className="border-border/50">
-                                <CardHeader>
-                                    <div className="mb-3 flex items-center gap-3">
-                                        <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10">
-                                            <span className="text-xl">👥</span>
-                                        </div>
-                                        <CardTitle className="text-2xl md:text-3xl">Key Characters</CardTitle>
-                                    </div>
-                                </CardHeader>
-                                <CardContent>
-                                    <div className="space-y-4">
-                                        <div className="rounded-lg border border-border/50 p-4">
-                                            <h4 className="mb-2 font-semibold text-foreground">Phèdre</h4>
-                                            <ul className="space-y-1 text-sm text-muted-foreground">
-                                                <li>• Wife of Theseus</li>
-                                                <li>• Stepmother of Hippolytus</li>
-                                                <li>• Confidante of Oenone</li>
-                                            </ul>
-                                        </div>
-                                        <div className="rounded-lg border border-border/50 p-4">
-                                            <h4 className="mb-2 font-semibold text-foreground">Theseus</h4>
-                                            <ul className="space-y-1 text-sm text-muted-foreground">
-                                                <li>• Husband of Phèdre</li>
-                                                <li>• Father of Hippolytus (from Antiope)</li>
-                                            </ul>
-                                        </div>
-                                        <div className="rounded-lg border border-border/50 p-4">
-                                            <h4 className="mb-2 font-semibold text-foreground">Hippolytus</h4>
-                                            <ul className="space-y-1 text-sm text-muted-foreground">
-                                                <li>• Son of Theseus and Antiope</li>
-                                                <li>• Stepson of Phèdre</li>
-                                                <li>• In love with Aricia</li>
-                                            </ul>
-                                        </div>
-                                        <div className="rounded-lg border border-border/50 p-4">
-                                            <h4 className="mb-2 font-semibold text-foreground">Oenone</h4>
-                                            <ul className="space-y-1 text-sm text-muted-foreground">
-                                                <li>• Nurse and confidante of Phèdre</li>
-                                            </ul>
-                                        </div>
-                                        <div className="rounded-lg border border-border/50 p-4">
-                                            <h4 className="mb-2 font-semibold text-foreground">Aricia</h4>
-                                            <ul className="space-y-1 text-sm text-muted-foreground">
-                                                <li>• Love interest of Hippolytus</li>
-                                                <li>• Enemy of Theseus' family</li>
-                                            </ul>
-                                        </div>
-                                        <div className="rounded-lg border border-border/50 p-4">
-                                            <h4 className="mb-2 font-semibold text-foreground">Theramène</h4>
-                                            <ul className="space-y-1 text-sm text-muted-foreground">
-                                                <li>• Tutor and companion of Hippolytus</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </CardContent>
-                            </Card>
+                                        <CardContent className="p-8 md:p-12">
+                                            <div className="space-y-12">
+                                                {/* Act I */}
+                                                <article>
+                                                    <div className="mb-4 flex items-center gap-4">
+                                                        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/10 font-serif font-bold text-primary">I</div>
+                                                        <h3 className="text-2xl font-bold">Act I — Exposition</h3>
+                                                    </div>
+                                                    <div className="pl-14 space-y-4 text-muted-foreground leading-relaxed">
+                                                        <ul className="list-disc ml-4 space-y-2">
+                                                            <li>Phèdre, queen of Athens, is tormented by a secret: she’s in love with her stepson Hippolytus.</li>
+                                                            <li>She believes her husband Theseus is dead.</li>
+                                                            <li>Hippolytus, unaware of Phèdre’s feelings, prepares to leave Troezen—partly to escape his own love for Aricia, a noblewoman Theseus had forbidden him to marry.</li>
+                                                        </ul>
+                                                    </div>
+                                                </article>
 
-                            {/* Plot Summary and remaining sections preserved below (unchanged) */}
-                            <div className="space-y-8">
-                                <div className="text-center">
-                                    <h2 className="mb-3 text-3xl font-bold tracking-tight md:text-4xl">
-                                        Plot Summary
-                                    </h2>
-                                    <p className="text-lg text-muted-foreground">
-                                        A five-act tragedy in classical structure
-                                    </p>
-                                </div>
+                                                <Separator />
 
-                                <div className="grid gap-6">
-                                    {/* Act I */}
-                                    <Card className="border-border/50 transition-all hover:border-primary/50 hover:shadow-lg">
-                                        <CardHeader>
-                                            <Badge className="mb-3 w-fit">Act I</Badge>
-                                            <CardTitle className="text-xl">The Forbidden Flame (Exposition)</CardTitle>
-                                        </CardHeader>
-                                        <CardContent>
-                                            <ul className="space-y-2 text-muted-foreground">
-                                                <li className="flex items-start gap-2">
-                                                    <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
-                                                    <span>Phèdre, queen of Athens, is tormented by a secret: she's in love with her stepson Hippolytus.</span>
-                                                </li>
-                                                <li className="flex items-start gap-2">
-                                                    <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
-                                                    <span>She believes her husband Theseus is dead.</span>
-                                                </li>
-                                                <li className="flex items-start gap-2">
-                                                    <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
-                                                    <span>Hippolytus, unaware of Phèdre's feelings, prepares to leave Troezen—partly to escape his own love for Aricia, a noblewoman Theseus had forbidden him to marry.</span>
-                                                </li>
-                                            </ul>
+                                                {/* Act II */}
+                                                <article>
+                                                    <div className="mb-4 flex items-center gap-4">
+                                                        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/10 font-serif font-bold text-primary">II</div>
+                                                        <h3 className="text-2xl font-bold">Act II — Rising Action</h3>
+                                                    </div>
+                                                    <div className="pl-14 space-y-4 text-muted-foreground leading-relaxed">
+                                                        <ul className="list-disc ml-4 space-y-2">
+                                                            <li>Phèdre confesses her love to Hippolytus, who is horrified.</li>
+                                                            <li>Her nurse Oenone urges her to protect her son’s future by accusing Hippolytus of assault.</li>
+                                                            <li>Phèdre is torn between shame and desire, but allows the lie to stand.</li>
+                                                        </ul>
+                                                    </div>
+                                                </article>
+
+                                                <Separator />
+
+                                                {/* Act III */}
+                                                <article>
+                                                    <div className="mb-4 flex items-center gap-4">
+                                                        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/10 font-serif font-bold text-primary">III</div>
+                                                        <h3 className="text-2xl font-bold">Act III — Climax</h3>
+                                                    </div>
+                                                    <div className="pl-14 space-y-4 text-muted-foreground leading-relaxed">
+                                                        <ul className="list-disc ml-4 space-y-2">
+                                                            <li>Theseus unexpectedly returns, alive and well.</li>
+                                                            <li>Oenone tells him Hippolytus tried to seduce Phèdre.</li>
+                                                            <li>Enraged, Theseus curses his son using a divine favor from Neptune.</li>
+                                                            <li>Phèdre remains silent, torn between guilt and fear.</li>
+                                                        </ul>
+                                                    </div>
+                                                </article>
+
+                                                <Separator />
+
+                                                {/* Act IV */}
+                                                <article>
+                                                    <div className="mb-4 flex items-center gap-4">
+                                                        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/10 font-serif font-bold text-primary">IV</div>
+                                                        <h3 className="text-2xl font-bold">Act IV — Reversal</h3>
+                                                    </div>
+                                                    <div className="pl-14 space-y-4 text-muted-foreground leading-relaxed">
+                                                        <ul className="list-disc ml-4 space-y-2">
+                                                            <li>Hippolytus decides to flee with Aricia, still proclaiming his innocence.</li>
+                                                            <li>Phèdre overhears their love and is consumed by jealousy.</li>
+                                                            <li>She begins to regret her silence but feels trapped by her earlier choices.</li>
+                                                        </ul>
+                                                    </div>
+                                                </article>
+
+                                                <Separator />
+
+                                                {/* Act V */}
+                                                <article>
+                                                    <div className="mb-4 flex items-center gap-4">
+                                                        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/10 font-serif font-bold text-primary">V</div>
+                                                        <h3 className="text-2xl font-bold">Act V — Catastrophe</h3>
+                                                    </div>
+                                                    <div className="pl-14 space-y-4 text-muted-foreground leading-relaxed">
+                                                        <ul className="list-disc ml-4 space-y-2">
+                                                            <li>News arrives: Hippolytus has been killed by a sea monster sent by Neptune.</li>
+                                                            <li>Phèdre, devastated, confesses the truth to Theseus—clearing Hippolytus’s name.</li>
+                                                            <li>She takes poison and dies, leaving Theseus to mourn his son and the ruin of his family.</li>
+                                                        </ul>
+                                                    </div>
+                                                </article>
+                                            </div>
                                         </CardContent>
                                     </Card>
+                                </section>
 
-                                    {/* Remaining acts, analysis, moral lessons, and back button unchanged (kept as before) */}
-                                </div>
-                            </div>
-
-                            <Card className="border-primary/50">
-                                <CardHeader>
-                                    <div className="mb-3 flex items-center gap-3">
-                                        <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10">
-                                            <span className="text-xl">🔍</span>
+                                {/* Analysis */}
+                                <section>
+                                    <div className="flex items-center gap-4 mb-4">
+                                        <h2 className="text-3xl font-bold tracking-tight">Analysis</h2>
+                                    </div>
+                                    <div className="space-y-6 text-muted-foreground leading-relaxed">
+                                        <div>
+                                            <h3 className="mb-2 text-xl font-semibold">Form</h3>
+                                            <p>
+                                                <span className="font-semibold">Phèdre</span> is a Neo-Classical French tragedy written in alexandrine verse (12-syllable rhymed lines). It follows the Three Unities:
+                                            </p>
+                                            <ul className="mt-2 ml-4 list-disc space-y-1 text-sm text-muted-foreground">
+                                                <li><strong className="text-foreground">Time:</strong> Events happen within one day.</li>
+                                                <li><strong className="text-foreground">Place:</strong> All action occurs in Troezen.</li>
+                                                <li><strong className="text-foreground">Action:</strong> Focuses on one central conflict — Phèdre’s forbidden love for Hippolytus.</li>
+                                            </ul>
                                         </div>
-                                        <CardTitle className="text-2xl md:text-3xl">Analysis</CardTitle>
+
+                                        <Separator />
+
+                                        <div>
+                                            <h3 className="mb-2 text-xl font-semibold">Tone / Mood</h3>
+                                            <p className="mb-1"><strong className="text-foreground">Tone:</strong> Serious, formal, and emotionally intense.</p>
+                                            <p><strong className="text-foreground">Mood:</strong> Dark, tragic, and tense — filled with dread, sorrow, and moral struggle.</p>
+                                        </div>
+
+                                        <Separator />
+
+                                        <div>
+                                            <h3 className="mb-2 text-xl font-semibold">Point of View</h3>
+                                            <p>
+                                                The play uses a dramatic perspective without an omniscient narrator. The story unfolds through dialogue and monologue; Phèdre’s speeches reveal her inner turmoil, making her both tragic and relatable.
+                                            </p>
+                                        </div>
+
+                                        <Separator />
+
+                                        <div>
+                                            <h3 className="mb-2 text-xl font-semibold">Conflict</h3>
+                                            <p className="font-semibold text-foreground mb-2">Internal Conflict (Self vs. Self):</p>
+                                            <p className="mb-2">Phèdre battles her own conscience, torn between forbidden love and moral duty. Her guilt and shame drive her toward confession and ultimately death.</p>
+                                            <p className="font-semibold text-foreground mb-2">External Conflict (Self vs. Person / Society):</p>
+                                            <ul className="ml-4 list-disc space-y-1 text-sm text-muted-foreground">
+                                                <li>Phèdre vs. Hippolytus — her love is rejected, creating emotional and social tension.</li>
+                                                <li>Phèdre vs. societal norms — her feelings violate moral expectations.</li>
+                                                <li>Hippolytus vs. Theseus — false accusations lead to tragic consequences.</li>
+                                            </ul>
+                                        </div>
                                     </div>
-                                </CardHeader>
-                                <CardContent className="space-y-6">
-                                    {/* (Analysis content preserved) */}
-                                    <div>
-                                        <h3 className="mb-3 flex items-center gap-2 text-xl font-semibold text-foreground">
-                                            <span className="text-2xl">📝</span>
-                                            Form
-                                        </h3>
-                                        <p className="mb-3 text-muted-foreground">
-                                            <em>Phaedra</em> is a Neo-Classical French tragedy written in alexandrine verse (12-syllable rhymed lines). It follows the <strong className="text-foreground">Three Unities</strong>:
-                                        </p>
-                                        <ul className="space-y-2 text-muted-foreground">
-                                            <li className="flex items-start gap-2">
-                                                <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
-                                                <span><strong className="text-foreground">Time:</strong> Events happen within one day.</span>
-                                            </li>
-                                            <li className="flex items-start gap-2">
-                                                <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
-                                                <span><strong className="text-foreground">Place:</strong> All action occurs in Troezen.</span>
-                                            </li>
-                                            <li className="flex items-start gap-2">
-                                                <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
-                                                <span><strong className="text-foreground">Action:</strong> Focuses on one central conflict — Phaedra's forbidden love for Hippolytus.</span>
-                                            </li>
-                                        </ul>
-                                    </div>
-
-                                    <Separator />
-
-                                    {/* Remaining analysis segments preserved */}
-                                </CardContent>
-                            </Card>
-
-                            {/* Back to Home Button */}
-                            <div className="pt-8 text-center">
-                                <Link href="/">
-                                    <Button size="lg" variant="outline" className="h-12 px-8">
-                                        <svg className="mr-2 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-                                        </svg>
-                                        Back to Home
-                                    </Button>
-                                </Link>
+                                </section>
                             </div>
                         </section>
                     </div>

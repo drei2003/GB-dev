@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
@@ -43,19 +43,24 @@ const VOYAGES = [
   },
 ];
 
-export default function GulliverReadPage() {
-  const [fontSize, setFontSize] = useState<"md" | "lg" | "xl">("md");
-  const [narrow, setNarrow] = useState(true);
-  const containerRef = useRef<HTMLDivElement | null>(null);
-  const partRefs = useRef<Array<HTMLElement | null>>([]);
+const CONTENTS = [
+  { id: "intro01", label: "THE PUBLISHER TO THE READER." },
+  { id: "intro02", label: "A LETTER FROM CAPTAIN GULLIVER TO HIS COUSIN SYMPSON." },
+  { id: "part01", label: "PART I. A VOYAGE TO LILLIPUT." },
+  { id: "part02", label: "PART II. A VOYAGE TO BROBDINGNAG." },
+  { id: "part03", label: "PART III. A VOYAGE TO LAPUTA, BALNIBARBI, GLUBBDUBDRIB, LUGGNAGG AND JAPAN." },
+  { id: "part04", label: "PART IV. A VOYAGE TO THE COUNTRY OF THE HOUYHNHNMS." },
+];  
 
-  const handleJumpTo = (index: number) => {
-    const el = partRefs.current[index];
-    if (!el) return;
-    const headerOffset = 120; // adjust for sticky headers
-    const y = window.scrollY + el.getBoundingClientRect().top - headerOffset;
-    window.scrollTo({ top: y, behavior: "smooth" });
-  };
+export default function GulliverReadPage() {
+  const iframeRef = useRef<HTMLIFrameElement | null>(null);
+  const baseHref = "/Gulliver’s Travels _ Project Gutenberg.html";
+  const [iframeSrc, setIframeSrc] = useState(() => encodeURI(baseHref));
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   return (
     <main className="container mx-auto px-4 py-12">
@@ -63,7 +68,7 @@ export default function GulliverReadPage() {
         <div className="mb-6 flex items-center justify-between gap-4">
           <div>
             <h1 className="text-2xl font-bold">Gulliver's Travels — Reader</h1>
-            <p className="text-sm text-muted-foreground">Reader with navigation, font and width controls.</p>
+            <p className="text-sm text-muted-foreground">Reader with navigation.</p>
           </div>
           <div className="flex items-center gap-2">
             <Link href="/gullivers-travels">
@@ -75,27 +80,17 @@ export default function GulliverReadPage() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <aside className="md:col-span-1">
             <div className="sticky top-24 space-y-4">
-              <div className="rounded-lg border border-border/50 bg-card/50 p-4">
-                <h3 className="text-sm font-medium mb-2">Reader Controls</h3>
-                <div className="space-y-3">
-                  <div className="flex items-center gap-2">
-                    <Button variant={fontSize === "md" ? undefined : "outline"} onClick={() => setFontSize("md")}>A</Button>
-                    <Button variant={fontSize === "lg" ? undefined : "outline"} onClick={() => setFontSize("lg")}>A+</Button>
-                    <Button variant={fontSize === "xl" ? undefined : "outline"} onClick={() => setFontSize("xl")}>A++</Button>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Button variant={narrow ? undefined : "outline"} onClick={() => setNarrow(true)}>Narrow</Button>
-                    <Button variant={!narrow ? undefined : "outline"} onClick={() => setNarrow(false)}>Wide</Button>
-                  </div>
-                </div>
-              </div>
+              
 
               <div className="rounded-lg border border-border/50 bg-card/50 p-4">
-                <h3 className="text-sm font-medium mb-2">Voyages</h3>
+                <h3 className="text-sm font-medium mb-2">Contents</h3>
                 <nav className="flex flex-col space-y-2">
-                  {VOYAGES.map((v, i) => (
-                    <button key={v.id} onClick={() => handleJumpTo(i)} className="text-left hover:underline">
-                      {v.title}
+                  {CONTENTS.map((c) => (
+                    <button key={c.id} onClick={() => {
+                      setIframeSrc(encodeURI(`${baseHref}#${c.id}`));
+                      setMounted(true);
+                    }} className="text-left hover:underline">
+                      {c.label}
                     </button>
                   ))}
                 </nav>
@@ -104,15 +99,20 @@ export default function GulliverReadPage() {
           </aside>
 
           <section className="md:col-span-3">
-            <div ref={containerRef} className={`mx-auto ${narrow ? "max-w-prose" : "max-w-3xl"} prose prose-lg dark:prose-invert`}>
-              {VOYAGES.map((voyage, idx) => (
-                <article key={voyage.id} ref={(el) => { partRefs.current[idx] = el; }} className="mb-12 scroll-mt-32">
-                  <h2 className={`mt-6 ${fontSize === "md" ? "text-2xl" : fontSize === "lg" ? "text-3xl" : "text-4xl"}`}>{voyage.title}</h2>
-                  {voyage.paragraphs.map((p, i) => (
-                    <p key={i} className={fontSize === "md" ? "text-base" : fontSize === "lg" ? "text-lg" : "text-xl"}>{p}</p>
-                  ))}
-                </article>
-              ))}
+            <div className="mx-auto">
+              {!mounted && (
+                <div className="p-8 text-center">Loading reader...</div>
+              )}
+
+              {mounted && (
+                <iframe
+                  ref={iframeRef}
+                  title="Gulliver's Travels - Project Gutenberg"
+                  src={iframeSrc}
+                  className="w-full h-[80vh] rounded border"
+                  style={{ minHeight: '640px' }}
+                />
+              )}
             </div>
           </section>
         </div>

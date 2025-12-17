@@ -10,6 +10,9 @@ import { Users } from 'lucide-react';
 import { InfiniteSlider } from "../components/ui/infinite-slider";
 import { ProgressiveBlur } from '@/components/ui/progressive-blur';
 import LightRays from "@/components/LightRays";
+import { Tilt } from "@/components/ui/tilt";
+import { BorderTrail } from "@/components/ui/border-trail";
+import ColorBends from "@/components/ColorBends";
 
 
 export default function Home() {
@@ -47,6 +50,20 @@ return (
 
     {/* Hero Section with Gradient */}
     <section className="relative overflow-hidden" style={{ minHeight: '600px' }}>
+        <div className="absolute inset-0 hidden dark:block dark:mix-blend-screen">
+            <ColorBends
+                colors={["#413701"]}
+                rotation={6}
+                speed={0.3}
+                scale={1}
+                frequency={2}
+                warpStrength={1.2}
+                mouseInfluence={0.8}
+                parallax={0.6}
+                noise={0}
+                transparent={true}
+            />
+        </div>
         <div className="container relative mx-auto px-4 py-24 md:py-32 mb-10">
             <div className="mx-auto max-w-5xl text-center">
                 <Badge variant="secondary"
@@ -91,121 +108,6 @@ return (
 
     <main className="container mx-auto px-4 py-16 md:py-24">
 
-              {/* CTA Section */}
-        <section id="cta" className="relative overflow-hidden">
-            <div className="relative p-8 md:p-12">
-                <div className="mx-auto max-w-5xl">
-                    <div className="text-center mb-12">
-                        <Badge variant="secondary"
-                            className="mb-4 bg-primary/10 text-primary hover:bg-primary/20 border border-primary/20">
-                            Explore Neo-Classical Masterpieces
-                        </Badge>
-                        <h2 className="mb-4 text-3xl font-bold tracking-tight md:text-4xl lg:text-5xl">
-                            Ready to Explore the Great Books?
-                        </h2>
-                        <p className="text-lg text-muted-foreground md:text-xl max-w-3xl mx-auto">
-                            Dive into three masterpieces that defined the Neo-Classical Age. Each work offers unique
-                            insights into reason, morality, and human nature.
-                        </p>
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-                        {/* An Essay on Criticism */}
-                        <div
-                            className="group relative aspect-[3/4] overflow-hidden rounded-lg border border-border/50  hover:shadow-lg">
-                            <img src="/An Essay on Criticism.png" alt="An Essay on Criticism"
-                                className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                            <ProgressiveBlur className='pointer-events-none absolute bottom-0 left-0 h-[60%] w-full'
-                                blurIntensity={8} />
-                            <div className='absolute bottom-0 left-0 w-full'>
-                                <div className='flex flex-col items-start gap-2 px-6 py-5'>
-                                    <p className='text-xl font-bold text-white dark:text-foreground'>An Essay on Criticism</p>
-                                    <span className='text-sm text-white/90 dark:text-muted-foreground mb-3'>by Alexander Pope</span>
-                                    <p className='text-sm text-white/90 dark:text-foreground/90 mb-4'>
-                                        A masterful poetic treatise on literary criticism and the principles of good
-                                        writing.
-                                    </p>
-                                    <Link href="/criticism" className="w-full">
-                                    <Button className="w-full shadow-md " variant="outline">
-                                        Explore Essay
-                                        <svg className="ml-2 h-4 w-4" fill="none" stroke="currentColor"
-                                            viewBox="0 0 24 24">
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-                                                d="M9 5l7 7-7 7" />
-                                        </svg>
-                                    </Button>
-                                    </Link>
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* Phaedra */}
-                        <div
-                            className="group relative aspect-[3/4] overflow-hidden rounded-lg  hover:shadow-xl shadow-primary/10">
-                            <img src="/Phaedra.png" alt="Phaedra"
-                                className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                            <ProgressiveBlur className='pointer-events-none absolute bottom-0 left-0 h-[60%] w-full'
-                                blurIntensity={8} />
-                            <div className='absolute bottom-0 left-0 w-full'>
-                                <div className='flex flex-col items-start gap-2 px-6 py-5'>
-                                    <p className='text-xl font-bold text-white dark:text-foreground'>Phaedra</p>
-                                    <span className='text-sm text-white/90 dark:text-muted-foreground mb-3'>by Jean Racine</span>
-                                    <p className='text-sm text-white/90 dark:text-foreground/90 mb-4'>
-                                        A tragic masterpiece exploring forbidden passion and moral conflict in classical
-                                        form.
-                                    </p>
-                                    <Link href="/phaedra" className="w-full">
-                                    <Button className="w-full shadow-md" variant="outline">
-                                        Read Drama
-                                        <svg className="ml-2 h-4 w-4" fill="none" stroke="currentColor"
-                                            viewBox="0 0 24 24">
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-                                                d="M9 5l7 7-7 7" />
-                                        </svg>
-                                    </Button>
-                                    </Link>
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* Gulliver's Travels */}
-                        <div
-                            className="group relative aspect-[3/4] overflow-hidden rounded-lg border border-border/50 hover:border-primary/50 transition-all hover:shadow-lg">
-                            <img src="/Gulliver's Travels.png" alt="Gulliver's Travels"
-                                className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                            <ProgressiveBlur className='pointer-events-none absolute bottom-0 left-0 h-[60%] w-full'
-                                blurIntensity={8} />
-                            <div className='absolute bottom-0 left-0 w-full'>
-                                <div className='flex flex-col items-start gap-2 px-6 py-5'>
-                                    <p className='text-xl font-bold text-white dark:text-foreground'>Gulliver's Travels</p>
-                                    <span className='text-sm text-white/90 dark:text-muted-foreground mb-3'>by Jonathan Swift</span>
-                                    <p className='text-sm text-white/90 dark:text-foreground/90 mb-4'>
-                                        A brilliant satirical adventure critiquing society, politics, and human nature.
-                                    </p>
-                                    <Link href="/gullivers-travels" className="w-full">
-                                    <Button className="w-full shadow-md" variant="outline">
-                                        Begin Adventure
-                                        <svg className="ml-2 h-4 w-4" fill="none" stroke="currentColor"
-                                            viewBox="0 0 24 24">
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-                                                d="M9 5l7 7-7 7" />
-                                        </svg>
-                                    </Button>
-                                    </Link>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="text-center">
-                        <p className="text-sm text-muted-foreground">
-                            Each masterpiece represents a cornerstone of Neo-Classical literature
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
         {/* About Section - Modern UI */}
         <section id="about" className="mb-12 flex justify-center scroll-mt-16 py-12 md:py-16">
             <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center mx-auto w-full justify-center">
@@ -239,7 +141,7 @@ return (
                         </div>
 
                         <div className="flex flex-col md:flex-row gap-6 justify-center w-full items-center ">
-                            <Card className="border-border/50 md:w-1/2 w-full">
+                            <Card className="relative overflow-hidden border-border/50 md:w-1/2 w-full">
                                 <CardHeader>
                                     <CardTitle className="text-lg flex">Literary Values & Purpose</CardTitle>
                                 </CardHeader>
@@ -251,9 +153,13 @@ return (
                                         Enlightenment's intellectual climate.
                                     </p>
                                 </CardContent>
+                                <BorderTrail
+                                    className="bg-gradient-to-l from-primary/30 via-primary to-primary/30"
+                                    size={100}
+                                    />
                             </Card>
 
-                            <Card className="border-border/50 md:w-1/2 w-full">
+                            <Card className="relative overflow-hidden border-border/50 md:w-1/2 w-full">
                                 <CardHeader>
                                     <CardTitle className="text-lg flex">Key Characteristics and Authors </CardTitle>
                                 </CardHeader>
@@ -267,6 +173,10 @@ return (
                                         these ideals.
                                     </p>
                                 </CardContent>
+                                <BorderTrail
+                                    className="bg-gradient-to-l from-primary/30 via-primary to-primary/30"
+                                    size={100}
+                                />
                             </Card>
                         </div>
                     </div>
@@ -569,9 +479,130 @@ return (
             </div>
         </section>
 
+        {/* CTA Section */}
+        <section id="cta" className="relative overflow-hidden">
+            <div className="relative p-8 md:p-12">
+                <div className="mx-auto max-w-5xl">
+                    <div className="text-center mb-12">
+                        <Badge variant="secondary"
+                            className="mb-4 bg-primary/10 text-primary hover:bg-primary/20 border border-primary/20">
+                            Explore Neo-Classical Masterpieces
+                        </Badge>
+                        <h2 className="mb-4 text-3xl font-bold tracking-tight md:text-4xl lg:text-5xl">
+                            Ready to Explore the Great Books?
+                        </h2>
+                        <p className="text-lg text-muted-foreground md:text-xl max-w-3xl mx-auto">
+                            Dive into three masterpieces that defined the Neo-Classical Age. Each work offers unique
+                            insights into reason, morality, and human nature.
+                        </p>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                        {/* An Essay on Criticism */}
+                        <Tilt rotationFactor={8} isRevese>
+                        <div
+                            className="group relative aspect-[3/4] overflow-hidden rounded-lg ">
+                            <img src="/An Essay on Criticism.png" alt="An Essay on Criticism"
+                                className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                            <ProgressiveBlur className='pointer-events-none absolute bottom-0 left-0 h-[60%] w-full'
+                                blurIntensity={8} />
+                            <div className='absolute bottom-0 left-0 w-full'>
+                                <div className='flex flex-col items-start gap-2 px-6 py-5'>
+                                    <p className='text-xl font-bold text-white dark:text-foreground'>An Essay on Criticism</p>
+                                    <span className='text-sm text-white/90 dark:text-muted-foreground mb-3'>by Alexander Pope</span>
+                                    <p className='text-sm text-white/90 dark:text-foreground/90 mb-4'>
+                                        A masterful poetic treatise on literary criticism and the principles of good
+                                        writing.
+                                    </p>
+                                    <Link href="/criticism" className="w-full">
+                                    <Button className="w-full shadow-md " variant="outline">
+                                        Explore Essay
+                                        <svg className="ml-2 h-4 w-4" fill="none" stroke="currentColor"
+                                            viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                                                d="M9 5l7 7-7 7" />
+                                        </svg>
+                                    </Button>
+                                    </Link>
+                                </div>
+                            </div>
+                        </div>
+                        </Tilt>
+
+                        {/* Phaedra */}
+                        <Tilt rotationFactor={8} isRevese>
+                        <div
+                            className="group relative aspect-[3/4] overflow-hidden rounded-lg  ">
+                            <img src="/Phaedra.png" alt="Phaedra"
+                                className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                            <ProgressiveBlur className='pointer-events-none absolute bottom-0 left-0 h-[60%] w-full'
+                                blurIntensity={8} />
+                            <div className='absolute bottom-0 left-0 w-full'>
+                                <div className='flex flex-col items-start gap-2 px-6 py-5'>
+                                    <p className='text-xl font-bold text-white dark:text-foreground'>Phaedra</p>
+                                    <span className='text-sm text-white/90 dark:text-muted-foreground mb-3'>by Jean Racine</span>
+                                    <p className='text-sm text-white/90 dark:text-foreground/90 mb-4'>
+                                        A tragic masterpiece exploring forbidden passion and moral conflict in classical
+                                        form.
+                                    </p>
+                                    <Link href="/phaedra" className="w-full">
+                                    <Button className="w-full shadow-md" variant="outline">
+                                        Read Drama
+                                        <svg className="ml-2 h-4 w-4" fill="none" stroke="currentColor"
+                                            viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                                                d="M9 5l7 7-7 7" />
+                                        </svg>
+                                    </Button>
+                                    </Link>
+                                </div>
+                            </div>
+                        </div>
+                        </Tilt>
+
+                        {/* Gulliver's Travels */}
+                        <Tilt rotationFactor={8} isRevese>
+                        <div
+                            className="group relative aspect-[3/4] overflow-hidden rounded-lg ">
+                            <img src="/Gulliver's Travels.png" alt="Gulliver's Travels"
+                                className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                            <ProgressiveBlur className='pointer-events-none absolute bottom-0 left-0 h-[60%] w-full'
+                                blurIntensity={8} />
+                            <div className='absolute bottom-0 left-0 w-full'>
+                                <div className='flex flex-col items-start gap-2 px-6 py-5'>
+                                    <p className='text-xl font-bold text-white dark:text-foreground'>Gulliver's Travels</p>
+                                    <span className='text-sm text-white/90 dark:text-muted-foreground mb-3'>by Jonathan Swift</span>
+                                    <p className='text-sm text-white/90 dark:text-foreground/90 mb-4'>
+                                        A brilliant satirical adventure critiquing society, politics, and human nature.
+                                    </p>
+                                    <Link href="/gullivers-travels" className="w-full">
+                                    <Button className="w-full shadow-md" variant="outline">
+                                        Begin Adventure
+                                        <svg className="ml-2 h-4 w-4" fill="none" stroke="currentColor"
+                                            viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                                                d="M9 5l7 7-7 7" />
+                                        </svg>
+                                    </Button>
+                                    </Link>
+                                </div>
+                            </div>
+                        </div>
+                        </Tilt>
+                    </div>
+
+                    <div className="text-center">
+                        <p className="text-sm text-muted-foreground">
+                            Each masterpiece represents a cornerstone of Neo-Classical literature
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <footer className="mt-24 border-t border-border pt-12 text-center">
             <p className="text-sm text-muted-foreground">
-                Curated by{" "}
+                Prepared by{" "}
                 <span className="font-medium text-foreground">Manuel Andrei L. Lleva</span>,{" "}
                 <span className="font-medium text-foreground">Meshe Mae N. Barquilla</span>, and{" "}
                 <span className="font-medium text-foreground">Kim Antonette B. Bron</span>

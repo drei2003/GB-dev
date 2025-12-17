@@ -15,9 +15,17 @@ import { ReactNode } from "react";
 
 export default function PhaedraLayout({ children }: { children: ReactNode }) {
     return (
-        <div className="min-h-screen bg-background">
+        <div className="min-h-screen ">
             {/* Hero Section */}
             <section className="relative overflow-hidden border-b border-border">
+                <div className="absolute inset-0 -z-10">
+                    <img
+                        src="/Phaedra.png"
+                        alt="Phaedra"
+                        className="h-full w-full object-cover opacity-20 blur-xs"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-background/60 to-background" />
+                </div>
                 <div className="container relative mx-auto px-4 py-16 md:py-24">
                     <div className="mx-auto max-w-4xl">
                         <Link href="/">
