@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Link from "next/link";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import GradualBlur from "@/components/GradualBlur";
 import { ThemeProvider } from "@/components/theme-provider"
@@ -58,6 +59,7 @@ children,
             </nav>
 
             {children}
+            <Analytics />
         </ThemeProvider>
         <GradualBlur target="page" position="bottom" height="4rem" strength={1} divCount={5} curve="bezier"
             exponential={true} opacity={1} />
